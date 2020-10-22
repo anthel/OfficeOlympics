@@ -93,12 +93,16 @@ body {
 }
 .formgroup {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  height: 200px;
+  width: 30%;
   margin-left: 250px;
 }
-.formgroup-content {
+.formgroup-item {
   margin: 8px;
 }
-.formgroup-content-submit {
 
+.bottom-container {
+  display: flex;
+  position: relative;
 }
