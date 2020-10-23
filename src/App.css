@@ -90,19 +90,23 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #F36E21;
   font-size: 20px;
+  text-align: center;
 }
 .formgroup {
   display: flex;
   flex-direction: column;
   height: 200px;
   width: 30%;
-  margin-left: 250px;
+  margin: 0 auto;
+  align-items: center;
 }
 .formgroup-item {
   margin: 8px;
 }
-
 .bottom-container {
   display: flex;
   position: relative;
+}
+.formgroup-header {
+  margin: 20px;
 }

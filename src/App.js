@@ -19,7 +19,6 @@ function generateTeams(list, teamSize) {
       counter = 0;
     }
   }
-  console.log(teamList)
   return teamList;
 }
 
@@ -63,11 +62,13 @@ function App() {
   const handleGenerate = (e) => {
     const teams = generateTeams(participants.slice(), teamSize)
     setTeamlist(teams);
-    console.log(teamlist)
     e.preventDefault();
   }
-  const renderTeams = () => {
-    
+
+  const renderTeams = (team) => {
+      return team.map((member,i) => 
+        <p className="content-text" key={i}>{member}</p>
+      )
   }
   return (
     <div className="layout">
@@ -119,18 +120,12 @@ function App() {
             <hr className="content-divider"/>
             <div className="teams-content-container">
               <div className="teams-content-wrapper">
-                
                 <div>
-                  {teamlist.map(team => 
-                    <div>
-                      {team.map(member => 
-                        <p>
-                          {member}
-                        </p>
-                      )}
-                      <hr className="divider"/>
+                  {teamlist.map((team) => 
+                    <div className="teamlist">
+                      {renderTeams(team)}
+                      <hr className="divider"/> 
                     </div>
-                    
                   )}
                 </div>
               </div>
@@ -139,7 +134,10 @@ function App() {
         </div>
         <div className="bottom-container">
           <div className="formgroup">
-            <h3>Add new participant</h3>
+            <div className="formgroup-header">
+              <p className="header-text">Add new participant</p>
+              <hr className="content-divider"/>
+            </div>
             <div className="formgroup-content">
             <form>
               <div className="formgroup-item">
@@ -154,12 +152,12 @@ function App() {
               </div>
               
               <button type="submit" 
-                className="formgroup-content-submit"
+                className="formgroup-button"
                 onClick={handleSubmit}
                 >Submit
               </button>
               <button 
-                className="generator-button"
+                className="formgroup-button"
                 onClick={handleGenerate}
                 >Generate
               </button>
